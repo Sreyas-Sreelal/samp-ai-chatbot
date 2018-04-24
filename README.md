@@ -1,5 +1,5 @@
 # samp-ai-chatbot
-This is  sample ai chatting bot using aiml,flask,pyaiml and pawn for sa-mp.
+This is  sample ai chatting bot using aiml,flask,pyaiml and pawn for sa-mp.You can add your own aiml files in sampai.aiml to change the bot behaviour.The current aiml files is from AI Foundation's A.L.I.C.E. bot.
 ## How to use this script?
 1. Clone this repository
    ```git clone https:///www.github.com/sreyas-sreelal/samp-ai-chatbot.git``` 
@@ -19,5 +19,4 @@ This is  sample ai chatting bot using aiml,flask,pyaiml and pawn for sa-mp.
 ## Images
 ![alt text](https://github.com/Sreyas-Sreelal/samp-ai-chatbot/blob/master/pics/pic1.png?raw=true "Pic 1")
 ![alt text](https://github.com/Sreyas-Sreelal/samp-ai-chatbot/blob/master/pics/pic2.png?raw=true "Pic 2")
-
 
