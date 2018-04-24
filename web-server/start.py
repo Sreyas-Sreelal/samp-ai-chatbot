@@ -31,6 +31,7 @@ app = Flask(__name__)
 
 @app.route('/respond/<text>')
 def response(text):
+    text.replace("+"," ")
     response = k.respond(text)
     return response
 
