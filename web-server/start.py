@@ -3,11 +3,7 @@ import os
 import aiml
 from flask import Flask,redirect
 
-
-
 k = aiml.Kernel()
-
-
 
 if os.path.exists("brain.dump"):
     print("Loading from brain file: " + "brain.dump")
@@ -31,7 +27,8 @@ app = Flask(__name__)
 
 @app.route('/respond/<text>')
 def response(text):
-    text.replace("+"," ")
+    text = text.replace("+"," ")
+    print(text)
     response = k.respond(text)
     return response
 
