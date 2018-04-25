@@ -22,7 +22,7 @@ public AskBot(playerid,response_code,data[])
         format(buffer,sizeof(buffer),RED BOT_NAME WHITE"(bot): %s",data);
         SendClientMessage(playerid, -1, buffer);
     }
-    else if(response_code = HTTP_ERROR_CANT_CONNECT)
+    else if(response_code == HTTP_ERROR_CANT_CONNECT)
     {
         print("[WARNING] Can't connect to flask server");
         SendClientMessage(playerid,-1,RED BOT_NAME" is offline!");
@@ -34,6 +34,13 @@ public AskBot(playerid,response_code,data[])
     }
     return 1;
 }
+public OnPlayerDisconnect(playerid, reason)
+{
+    new payload[30];
+    format(payload,sizeof(payload),"localhost:5000/delete/%d",playerid);
+    HTTP(playerid, HTTP_GET, payload,"", "");
+    return 1;
+}
 CMD:ask(playerid,params[])
 {
     new name[MAX_PLAYER_NAME],msg[128];
@@ -41,8 +48,9 @@ CMD:ask(playerid,params[])
     format(msg, sizeof(msg),"%s: %s",name,params);
     SendClientMessageToAll(-1,msg);
     replacespace(params);
-    printf("[DEBUG]params after replcaing space is %s",params);
-    new inputtext[256]="localhost:5000/respond/";
+    printf("[DEBUG]params after replacing space is %s",params);
+    new inputtext[170];
+    format(inputtext,sizeof(inputtext),"localhost:5000/respond/%d/",playerid);
     strcat(inputtext, params);
     HTTP(playerid, HTTP_GET, inputtext,"", "AskBot");
     return 1;
@@ -55,3 +63,4 @@ replacespace(str[])
 		if(str[i]==' ')
 			str[i]='+';
 }
+

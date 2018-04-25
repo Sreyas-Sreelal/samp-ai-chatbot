@@ -25,12 +25,16 @@ k.setBotPredicate('BOTNAME','Cosmic')
 
 app = Flask(__name__)
 
-@app.route('/respond/<text>')
-def response(text):
+@app.route('/respond/<int:session>/<text>')
+def response(session,text):
     text = text.replace("+"," ")
     print(text)
-    response = k.respond(text)
+    response = k.respond(text,session)
     return response
 
+@app.route('/delete/<int:session>')
+def session_clear(session):
+    k._deleteSession(session)
+    print("Cleared session("+str(session)+") data")
 
 app.run()
