@@ -19,12 +19,17 @@ public AskBot(playerid,response_code,data[])
     if(response_code == 200)
     {
         new buffer[300];
-        format(buffer,sizeof(buffer),RED BOT_NAME WHITE": %s",data);
+        format(buffer,sizeof(buffer),RED BOT_NAME WHITE"(bot): %s",data);
         SendClientMessage(playerid, -1, buffer);
+    }
+    else if(response_code = HTTP_ERROR_CANT_CONNECT)
+    {
+        print("[WARNING] Can't connect to flask server");
+        SendClientMessage(playerid,-1,RED BOT_NAME" is offline!");
     }
     else
     {
-        SendClientMessage(playerid,-1,RED BOT_NAME  WHITE": Something happened to brain :( please ask again");
+        SendClientMessage(playerid,-1,RED BOT_NAME  WHITE"(bot): Something happened to my brain :( can you repeat what you just said?");
         printf("[DEBUG] Response code is %d",response_code);
     }
     return 1;
@@ -47,8 +52,6 @@ replacespace(str[])
 {
 	new i=-1;
 	while(str[++i])
-	{
 		if(str[i]==' ')
 			str[i]='+';
-	}
 }
