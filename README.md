@@ -8,15 +8,19 @@
    git clone https://www.github.com/sreyas-sreelal/samp-ai-chatbot.git
    ``` 
 2. Compile the sample bot script in filterscripts folder and add them to your server project
-3. Install python (i recommend python 3.5+ versions) dependencies using pip
+3. Install pip3 as we are going to use python3
     ```
-    pip install flask python-aiml
+    apt install pip3
     ```
-4. Start the web server using the script start.py in web-server folder
+4. Install python (i recommend python 3.5+ versions) dependencies using pip
+    ```
+    pip3 install flask python-aiml
+    ```
+5. Start the web server using the script start.py in web-server folder
     ```
     python3 start.py
     ```
-5. Start your samp server and use the command `/ask <message>` to talk with the bot
+6. Start your samp server and use the command `/ask <message>` to talk with the bot
 ## Dependencies
 * ### pawn (to run sample script)
   * sa-mp 0.3.7  - https://www.sa-mp.com/download.php
